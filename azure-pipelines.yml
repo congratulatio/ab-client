@@ -14,9 +14,14 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
+    git submodule init
+    git submodule update
+  displayName: 'Update submodules'
+
+- script: |
     npm install
-    npm run build
-  displayName: 'npm install, npm run build'
+    npm run build-prod
+  displayName: 'npm install, npm run build-prod'
 
 - task: CopyFiles@2
   inputs:
